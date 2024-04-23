@@ -1,0 +1,261 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 3,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "fb8c3979-265c-4335-b24e-59b02be763fc"
+      },
+      "gridPos": {
+        "h": 20,
+        "w": 22,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "basemap": {
+          "config": {
+            "showLabels": true,
+            "theme": "light"
+          },
+          "type": "carto"
+        },
+        "dataLayers": [
+          {
+            "config": {
+              "direction": "source",
+              "jitterPoints": false,
+              "searchProperties": [],
+              "show": true,
+              "startId": 0,
+              "vertices": {}
+            },
+            "displayProperties": [
+              "Mastenummer",
+              "equipmentnr",
+              "linename",
+              "parallellinename",
+              "score"
+            ],
+            "edgeLabelField": "lineid",
+            "isShowBW": false,
+            "isShowTooltip": true,
+            "locField": "Mastenummer",
+            "location": {
+              "latitude": "latitude",
+              "longitude": "longitude",
+              "mode": "auto"
+            },
+            "metricField": "score",
+            "name": "Masten",
+            "parField": "source",
+            "query": {
+              "id": "byRefId",
+              "options": "A"
+            },
+            "searchProperties": [],
+            "type": "markers"
+          }
+        ],
+        "globalThresholdsConfig": [
+          {
+            "color": "rgb(55, 135, 45)",
+            "label": "low",
+            "lineWidth": 5,
+            "overrides": [
+              {
+                "name": "score",
+                "type": "number",
+                "value": "1"
+              }
+            ],
+            "selColor": "rgba(41, 156, 70, 0.9)",
+            "value": 1
+          },
+          {
+            "color": "rgb(224, 180, 0)",
+            "label": "med",
+            "lineWidth": 5,
+            "overrides": [
+              {
+                "name": "score",
+                "type": "number",
+                "value": "2"
+              }
+            ],
+            "selColor": "rgba(41, 156, 70, 0.9)",
+            "value": 0
+          },
+          {
+            "color": "rgb(196, 22, 42)",
+            "label": "high",
+            "lineWidth": 5,
+            "overrides": [
+              {
+                "name": "score",
+                "type": "number",
+                "value": "3"
+              }
+            ],
+            "selColor": "rgba(41, 156, 70, 0.9)",
+            "value": 0
+          }
+        ],
+        "view": {
+          "id": "auto",
+          "lat": 0,
+          "lon": 0,
+          "zoom": 2
+        }
+      },
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "geojson",
+              "text": "geojson",
+              "type": "string"
+            },
+            {
+              "selector": "Mastenummer",
+              "text": "Mastenummer",
+              "type": "string"
+            },
+            {
+              "selector": "equipmentnr",
+              "text": "equipmentnr",
+              "type": "string"
+            },
+            {
+              "selector": "driftsstrækning",
+              "text": "linename",
+              "type": "string"
+            },
+            {
+              "selector": "parallelstrækning",
+              "text": "parallellinename",
+              "type": "string"
+            },
+            {
+              "selector": "source",
+              "text": "source",
+              "type": "string"
+            },
+            {
+              "selector": "lineid",
+              "text": "lineid",
+              "type": "string"
+            },
+            {
+              "selector": "score",
+              "text": "score",
+              "type": "number"
+            },
+            {
+              "selector": "aggrType",
+              "text": "aggrType",
+              "type": "string"
+            }
+          ],
+          "data": "\"Mastenummer\",\"geojson\",\"equipmentnr\",\"driftsstrækning\",\"parallelstrækning\",source,lineid,score,aggrType\n052,\"{\"coordinates\":[9.39689431,54.95812521],\"type\":\"Point\"}\",000000000000318136,SHE_150_UWN,SHE_150_UWN,053,317819,1,node\n053,\"{\"coordinates\":[9.39835805,54.96174125],\"type\":\"Point\"}\",000000000000318137,SHE_150_UWN,SHE_150_UWN,054,317820,2,node\n054,\"{\"coordinates\":[9.3996284,54.96490507],\"type\":\"Point\"}\",000000000000318138,SHE_150_UWN,SHE_150_UWN,055,317821,3,node\n055,\"{\"coordinates\":[9.40074614,54.96767411],\"type\":\"Point\"}\",000000000000318139,SHE_150_UWN,SHE_150_UWN,056,317822,1,node\n056,\"{\"coordinates\":[9.40206128,54.97096867],\"type\":\"Point\"}\",000000000000318140,SHE_150_UWN,SHE_150_UWN,057,317823,2,node\n057,\"{\"coordinates\":[9.40349243,54.97450952],\"type\":\"Point\"}\",000000000000318141,SHE_150_UWN,SHE_150_UWN,058,317824,3,node\n058,\"{\"coordinates\":[9.40431438,54.97653309],\"type\":\"Point\"}\",000000000000318142,SHE_150_UWN,SHE_150_UWN,059,317825,3,node\n059,\"{\"coordinates\":[9.40577056,54.9801386],\"type\":\"Point\"}\",000000000000318143,SHE_150_UWN,SHE_150_UWN,060,317826,2,node\n060,\"{\"coordinates\":[9.40702803,54.98326454],\"type\":\"Point\"}\",000000000000318144,SHE_150_UWN,SHE_150_UWN,061,317827,1,node\n061,\"{\"coordinates\":[9.40838972,54.98661656],\"type\":\"Point\"}\",000000000000318145,SHE_150_UWN,SHE_150_UWN,062,317828,1,node\n062,\"{\"coordinates\":[9.40943604,54.98918552],\"type\":\"Point\"}\",000000000000318146,SHE_150_UWN,SHE_150_UWN,063,317829,1,node\n063,\"{\"coordinates\":[9.41039306,54.99158304],\"type\":\"Point\"}\",000000000000318147,SHE_150_UWN,SHE_150_UWN,063A,317830,1,node\n063A,\"{\"coordinates\":[9.41107123,54.99325063],\"type\":\"Point\"}\",000000000000318148,SHE_150_UWN,SHE_150_UWN,064,317831,1,node\n064,\"{\"coordinates\":[9.41190687,54.99533468],\"type\":\"Point\"}\",000000000000318149,SHE_150_UWN,SHE_150_UWN,065,317832,1,node\n065,\"{\"coordinates\":[9.41290239,54.99787313],\"type\":\"Point\"}\",000000000000318150,SHE_150_UWN,SHE_150_UWN,066,317833,1,node\n066,\"{\"coordinates\":[9.4143961,55.00148252],\"type\":\"Point\"}\",000000000000318151,SHE_150_UWN,SHE_150_UWN,067,317834,1,node\n067,\"{\"coordinates\":[9.41573978,55.004829],\"type\":\"Point\"}\",000000000000318152,SHE_150_UWN,SHE_150_UWN,068,317835,1,node\n068,\"{\"coordinates\":[9.41709775,55.00824035],\"type\":\"Point\"}\",000000000000318153,SHE_150_UWN,SHE_150_UWN,069,317836,1,node\n069,\"{\"coordinates\":[9.41841822,55.01153385],\"type\":\"Point\"}\",000000000000318154,SHE_150_UWN,SHE_150_UWN,070,317837,1,node\n070,\"{\"coordinates\":[9.42155874,55.01324818],\"type\":\"Point\"}\",000000000000318155,SHE_150_UWN,SHE_150_UWN,071,317838,2,node\n071,\"{\"coordinates\":[9.42396229,55.01451448],\"type\":\"Point\"}\",000000000000318156,SHE_150_UWN,SHE_150_UWN,072,317839,3,node\n072,\"{\"coordinates\":[9.42742411,55.01638942],\"type\":\"Point\"}\",000000000000318157,SHE_150_UWN,SHE_150_UWN,073,317840,3,node\n073,\"{\"coordinates\":[9.42987844,55.01771149],\"type\":\"Point\"}\",000000000000318158,SHE_150_UWN,SHE_150_UWN,074,317841,1,node\n074,\"{\"coordinates\":[9.43177707,55.01874177],\"type\":\"Point\"}\",000000000000318159,SHE_150_UWN,SHE_150_UWN,,317842,1,node\n047,\"{\"coordinates\":[9.39053232,54.94233771],\"type\":\"Point\"}\",000000000000318131,SHE_150_UWN,SHE_150_UWN,048,317814,1,node\n048,\"{\"coordinates\":[9.39179586,54.94543611],\"type\":\"Point\"}\",000000000000318132,SHE_150_UWN,SHE_150_UWN,049,317815,1,node\n049,\"{\"coordinates\":[9.3930113,54.94848413],\"type\":\"Point\"}\",000000000000318133,SHE_150_UWN,SHE_150_UWN,050,317816,1,node\n050,\"{\"coordinates\":[9.39430514,54.95168573],\"type\":\"Point\"}\",000000000000318134,SHE_150_UWN,SHE_150_UWN,051,317817,1,node\n051,\"{\"coordinates\":[9.39549945,54.95464367],\"type\":\"Point\"}\",000000000000318135,SHE_150_UWN,SHE_150_UWN,052,317818,1,node",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "fb8c3979-265c-4335-b24e-59b02be763fc"
+          },
+          "filterExpression": "score > $score_var",
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "",
+          "source": "inline",
+          "summarizeBy": "",
+          "type": "csv",
+          "uql": "parse-csv",
+          "url": "https://github.com/grafana/grafana-infinity-datasource/blob/main/testdata/users.json",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Masten",
+      "transparent": true,
+      "type": "vaduga-mapgl-panel"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": ".+",
+        "current": {
+          "selected": false,
+          "text": "2",
+          "value": "2"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "score_var",
+        "options": [
+          {
+            "selected": false,
+            "text": "0",
+            "value": "0"
+          },
+          {
+            "selected": false,
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "selected": true,
+            "text": "2",
+            "value": "2"
+          }
+        ],
+        "query": "0,1,2",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Masten",
+  "uid": "c68c3609-f567-44d0-a6e9-970ffc776a7d",
+  "version": 1,
+  "weekStart": ""
+}
