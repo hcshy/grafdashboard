@@ -24,60 +24,6 @@
   "panels": [
     {
       "datasource": {
-        "type": "grafana-postgresql-datasource",
-        "uid": "a5b94d3d-ee65-47b4-82d8-788a17ae171e"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 0
-      },
-      "id": 2,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "10.4.1",
-      "title": "hetzalweeelll",
-      "type": "stat"
-    },
-    {
-      "datasource": {
         "type": "yesoreyeram-infinity-datasource",
         "uid": "fb8c3979-265c-4335-b24e-59b02be763fc"
       },
@@ -85,7 +31,7 @@
         "h": 20,
         "w": 22,
         "x": 0,
-        "y": 8
+        "y": 0
       },
       "id": 1,
       "options": {
@@ -257,7 +203,7 @@
           }
         }
       ],
-      "title": "Masten",
+      "title": "Mastendanseenin",
       "transparent": true,
       "type": "vaduga-mapgl-panel"
     }
@@ -310,6 +256,6 @@
   "timezone": "",
   "title": "Masten",
   "uid": "c68c3609-f567-44d0-a6e9-970ffc776a7d",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
