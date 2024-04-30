@@ -7,7 +7,7 @@ spec:
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:
-      dashboards: grafana
+      dashboards: General
   json: >
     {
       "__inputs": [
