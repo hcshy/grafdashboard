@@ -1,8 +1,12 @@
-apiVersion: grafana.integreatly.org/v1beta1
-kind: GrafanaDashboard
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-options: ServerSideApply=true
+---
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
   name: node-exporter
   namespace: grafana
 spec:
