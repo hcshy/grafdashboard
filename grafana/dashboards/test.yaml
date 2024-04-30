@@ -1,7 +1,7 @@
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
-  name: grafanadashboard-sample
+  name: test-board
   namespace: grafana
 spec:
   resyncPeriod: 30s
@@ -10,31 +10,185 @@ spec:
       dashboards: grafana
   json: >
     {
-    "id": null,
-    "title": "Simple Dashboard",
-    "tags": [],
-    "style": "dark",
-    "timezone": "browser",
-    "editable": true,
-    "hideControls": false,
-    "graphTooltip": 1,
-    "panels": [],
-    "time": {
+      "annotations": {
+        "list": [
+          {
+            "builtIn": 1,
+            "datasource": {
+              "type": "grafana",
+              "uid": "-- Grafana --"
+            },
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(0, 211, 255, 1)",
+            "name": "Annotations & Alerts",
+            "type": "dashboard"
+          }
+        ]
+      },
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": 9,
+      "links": [],
+      "liveNow": false,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "a9695e40-88f9-4c1e-b6f1-3f8b2388edce"
+          },
+          "gridPos": {
+            "h": 15,
+            "w": 24,
+            "x": 0,
+            "y": 0
+          },
+          "id": 1,
+          "options": {
+            "dedupStrategy": "none",
+            "enableLogDetails": true,
+            "prettifyLogMessage": false,
+            "showCommonLabels": false,
+            "showLabels": false,
+            "showTime": true,
+            "sortOrder": "Descending",
+            "wrapLogMessage": true
+          },
+          "pluginVersion": "10.3.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-postgresql-datasource",
+                "uid": "a9695e40-88f9-4c1e-b6f1-3f8b2388edce"
+              },
+              "editorMode": "code",
+              "format": "table",
+              "rawQuery": true,
+              "rawSql": "SELECT \r\n    a.tijd_modificatie, \r\n    a.reden_modificatie,\r\n    replace(replace(replace(replace(jsonb_pretty(a.configuratie), '{', ''), '}', ''), ': ', ' => '), '\"', '') as Configuratievelden\r\n--    a.configuratie->>'identifier' AS identifier,\r\n--    a.configuratie-> 'coefficients' ->> 'Ea' AS coefficients_Ea,\r\n--    a.configuratie-> 'coefficients' ->> 'Eb' AS coefficients_Eb,\r\n--    a.configuratie-> 'coefficients' ->> 'Fg' AS coefficients_Fg,\r\n--    a.configuratie-> 'coefficients' ->> 'K01' AS coefficients_K01,\r\n--    a.configuratie-> 'coefficients' ->> 'K21' AS coefficients_K21,\r\n--    a.configuratie-> 'alfa_beta_parameters' ->> 'alfa_alert_threshold' AS alfa_alert_threshold,\r\n--    a.configuratie-> 'alfa_beta_parameters' ->> 'beta_alert_threshold' AS beta_alert_threshold,\r\n--    a.configuratie-> 'common_measurement_parameters' ->> 'sampling_time' AS sampling_time,\r\n--    a.configuratie-> 'common_measurement_parameters' ->> 'measuring_time' AS measuring_time,\r\n--    a.configuratie-> 'common_measurement_parameters' -> 'sampling_flow_rate' ->> 'unit' AS sampling_flow_rate_unit,\r\n--    a.configuratie-> 'common_measurement_parameters' -> 'sampling_flow_rate' -> 'value' AS sampling_flow_rate_value\r\nFROM \r\n    configuratie.apparatuurconfiguratie a\r\nJOIN \r\n    configuratie.apparatuur ca ON a.apparatuur_id = ca.id\r\nWHERE \r\n    ca.id = '$ca_id' \r\n\r\n",
+              "refId": "A",
+              "sql": {
+                "columns": [
+                  {
+                    "parameters": [],
+                    "type": "function"
+                  }
+                ],
+                "groupBy": [
+                  {
+                    "property": {
+                      "type": "string"
+                    },
+                    "type": "groupBy"
+                  }
+                ],
+                "limit": 50
+              }
+            },
+            {
+              "datasource": {
+                "type": "grafana-postgresql-datasource",
+                "uid": "a9695e40-88f9-4c1e-b6f1-3f8b2388edce"
+              },
+              "editorMode": "code",
+              "format": "table",
+              "hide": false,
+              "rawQuery": true,
+              "rawSql": "select a.tijd_modificatie, \r\na.configuratie->>'ts' AS ts,\r\na.configuratie->>'serial' AS serial,\r\na.configuratie->>'time_utc' AS time_utc,\r\na.configuratie->>'machine_id' AS machine_id,\r\na.configuratie->>'time_local' AS time_local,\r\na.configuratie->>'mac_based_hw_id' AS mac_based_hw_id,\r\na.configuratie->>'machine_id_short' AS machine_id_short\r\nfrom configuratie.apparatuurconfiguratie a, configuratie.apparatuur ca \r\nwhere a.apparatuur_id  = ca.id and ca.id = '$ca_id'",
+              "refId": "B",
+              "sql": {
+                "columns": [
+                  {
+                    "parameters": [],
+                    "type": "function"
+                  }
+                ],
+                "groupBy": [
+                  {
+                    "property": {
+                      "type": "string"
+                    },
+                    "type": "groupBy"
+                  }
+                ],
+                "limit": 50
+              }
+            }
+          ],
+          "title": "Apparatuurconfiguratie: $model",
+          "transformations": [
+            {
+              "id": "merge",
+              "options": {}
+            }
+          ],
+          "type": "logs"
+        }
+      ],
+      "refresh": "",
+      "schemaVersion": 39,
+      "tags": [],
+      "templating": {
+        "list": [
+          {
+            "current": {
+              "selected": false,
+              "text": "1",
+              "value": "1"
+            },
+            "datasource": {
+              "type": "grafana-postgresql-datasource",
+              "uid": "a9695e40-88f9-4c1e-b6f1-3f8b2388edce"
+            },
+            "definition": "select id from configuratie.apparatuur",
+            "hide": 2,
+            "includeAll": false,
+            "label": "ca_id",
+            "multi": false,
+            "name": "ca_id",
+            "options": [],
+            "query": "select id from configuratie.apparatuur",
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
+          },
+          {
+            "current": {
+              "isNone": true,
+              "selected": false,
+              "text": "None",
+              "value": ""
+            },
+            "datasource": {
+              "type": "grafana-postgresql-datasource",
+              "uid": "a9695e40-88f9-4c1e-b6f1-3f8b2388edce"
+            },
+            "definition": "select ca.model \nfrom configuratie.apparatuurconfiguratie a, configuratie.apparatuur ca \nwhere a.apparatuur_id  = ca.id and ca.id = '$ca_id'",
+            "hide": 2,
+            "includeAll": false,
+            "label": "model",
+            "multi": false,
+            "name": "model",
+            "options": [],
+            "query": "select ca.model \nfrom configuratie.apparatuurconfiguratie a, configuratie.apparatuur ca \nwhere a.apparatuur_id  = ca.id and ca.id = '$ca_id'",
+            "refresh": 1,
+            "regex": "",
+            "skipUrlSync": false,
+            "sort": 0,
+            "type": "query"
+          }
+        ]
+      },
+      "time": {
         "from": "now-6h",
         "to": "now"
-    },
-    "timepicker": {
-        "time_options": [],
-        "refresh_intervals": []
-    },
-    "templating": {
-        "list": []
-    },
-    "annotations": {
-        "list": []
-    },
-    "refresh": "5s",
-    "schemaVersion": 17,
-    "version": 0,
-    "links": []
+      },
+      "timepicker": {},
+      "timezone": "",
+      "title": "Apparatuurconfiguratie",
+      "uid": "dd925b60-7574-4671-b98b-169170a53d93",
+      "version": 25,
+      "weekStart": ""
     }
