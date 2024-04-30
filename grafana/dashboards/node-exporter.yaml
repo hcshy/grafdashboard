@@ -4,6 +4,7 @@ metadata:
   name: node-exporter
   namespace: grafana
 spec:
+  folder: "grafana"
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:
