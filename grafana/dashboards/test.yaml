@@ -2,12 +2,12 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
   name: test-board
-  namespace: grafana
+  namespace: grafana-tst
 spec:
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:
-      dashboards: grafana
+      dashboards: grafana-tst
   json: >
     {
       "annotations": {

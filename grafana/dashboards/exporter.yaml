@@ -2,13 +2,13 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
   name: exporter
-  namespace: grafana
+  namespace: grafana-tst
 spec:
   folder: "grafana"
   resyncPeriod: 30s
   instanceSelector:
     matchLabels:
-      dashboards: grafana
+      dashboards: grafana-tst
   json: >
     {
       "__inputs": [
